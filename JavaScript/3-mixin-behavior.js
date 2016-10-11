@@ -4,7 +4,7 @@ function scalable(image) {
   image.scale = () => console.log('Image scaled');
 }
 
-function lazy(behavior) {
+function lazy(image) {
   let scale = image.scale;
   image.scale = () => setImmediate(() => scale());
 }
