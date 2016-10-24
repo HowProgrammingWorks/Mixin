@@ -9,7 +9,7 @@ function assignMetadata(data, metadata) {
   let proto = buildPrototype(metadata);
   assignPrototype(data, proto);
   return proto;
-};
+}
 
 // Assign prototype to records array or single record
 //   data - array of objects
@@ -34,7 +34,7 @@ function buildPrototype(metadata) {
     if (buildGetter) buildGetter(protoClass, name, index++, fieldDef);
   }
   return protoClass;
-};
+}
 
 let accessors = {
 
