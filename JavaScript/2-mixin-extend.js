@@ -11,17 +11,17 @@ function extend(obj, mixin) {
 }
 */
 
-let extend = (obj, mixin) => (
+const extend = (obj, mixin) => (
   Object.keys(mixin).forEach(key => obj[key] = mixin[key]), obj
 );
 
-let obj1 = { name: 'Marcus Aurelius', city: 'Rome', born: 121 };
+const obj1 = { name: 'Marcus Aurelius', city: 'Rome', born: 121 };
 
-let mix1 = {
-  toString: function() {
+const mix1 = {
+  toString() {
     return this.name + ' was born in ' + this.city + ' in ' + this.born;
   },
-  age: function() {
+  age() {
     return new Date().getFullYear() - new Date(this.born + '').getFullYear();
   }
 };

@@ -5,11 +5,11 @@ function scalable(image) {
 }
 
 function lazy(image) {
-  let scale = image.scale;
+  const scale = image.scale;
   image.scale = () => setImmediate(() => scale());
 }
 
-let image = {};
+const image = {};
 
 console.log('Mixin scalable() adds method: scale');
 scalable(image);

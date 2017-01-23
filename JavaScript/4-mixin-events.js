@@ -1,21 +1,21 @@
 'use strict';
 
-let extend = (obj, mixin) => (
+const extend = (obj, mixin) => (
   Object.keys(mixin).forEach(key => obj[key] = mixin[key]), obj
 );
 
-let obj1 = { name: 'Marcus Aurelius', city: 'Rome', born: 121 };
+const obj1 = { name: 'Marcus Aurelius', city: 'Rome', born: 121 };
 
-let mexinEvents = {
-  toString: function() {
+const mexinEvents = {
+  toString() {
     return this.name + ' was born in ' + this.city + ' in ' + this.born;
   },
-  age: function() {
+  age() {
     return new Date().getFullYear() - new Date(this.born + '').getFullYear();
   }
 };
 
-extend(obj1, mix1);
+extend(obj1, mexinEvents);
 console.log(obj1);
 console.log(obj1.toString());
 console.log('His age is ' + obj1.age() + ' as of today');

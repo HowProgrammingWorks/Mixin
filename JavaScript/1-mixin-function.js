@@ -1,8 +1,8 @@
 'use strict';
 
-let g1 = {};
-let g2 = {};
-let g3 = { area: 300 };
+const g1 = {};
+const g2 = {};
+const g3 = { area: 300 };
 
 // Add property area to g2
 g2.area = 200;
@@ -26,7 +26,7 @@ console.log(g1.calculateCost(5));
 console.log(g2.calculateCost(5));
 console.log(g3.calculateCost(5));
 
-let t1 = setTimeout(function() {
+const t1 = setTimeout(() => {
   console.log('Hello from timer');
 }, 1000);
 
