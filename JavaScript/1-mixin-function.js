@@ -21,6 +21,10 @@ mixinCalculateCost(g1);
 // Mixin to array of objects
 [g1, g2, g3].forEach(mixinCalculateCost);
 
+// metasync
+//   .for([g1, g2, g3])
+//   .each(mixinCalculateCost);
+
 // Use mixed methods
 console.log(g1.calculateCost(5));
 console.log(g2.calculateCost(5));

@@ -48,7 +48,9 @@ function assignMetadata(data, metadata) {
 function assignPrototype(data, proto) {
   if (Array.isArray(data)) {
     data.forEach(item => item.__proto__ = proto.prototype);
-  } else data.__proto__ = proto.prototype;
+  } else {
+    data.__proto__ = proto.prototype;
+  }
 }
 
 // Build Prototype from Metadata
@@ -65,7 +67,6 @@ function buildPrototype(metadata) {
   }
   return protoClass;
 }
-
 
 // Define Data Source
 //
