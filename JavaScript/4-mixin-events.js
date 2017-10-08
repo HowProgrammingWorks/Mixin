@@ -21,5 +21,3 @@ extend(obj1, mexinEvents);
 console.log(obj1);
 console.log(obj1.toString());
 console.log('His age is ' + obj1.age() + ' as of today');
-
-// TODO ???
