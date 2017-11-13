@@ -17,7 +17,13 @@ const mix1 = {
   }
 };
 
-Object.assign(obj1, mix1);
+const mix2 = {
+  toString() {
+    return `${this.name} - ${this.city} - ${this.born}`;
+  }
+};
+
+Object.assign(obj1, mix1, mix2);
 console.log(obj1);
 console.log(obj1.toString());
 console.log(`His age is ${obj1.age()} as of today`);
