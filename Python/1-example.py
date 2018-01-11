@@ -32,4 +32,3 @@ instance2 = Test2()
 instance2.meth1()
 instance2.meth2()
 instance2.outputMethod()
-
