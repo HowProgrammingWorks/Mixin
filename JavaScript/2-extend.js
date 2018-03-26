@@ -1,18 +1,20 @@
 'use strict';
 
-/*function extend(obj, mixin) {
-  for (let key in mixin) {
-    if (mixin.hasOwnProperty(key)) {
-      obj[key] = mixin[key];
-    }
-  }
-  return obj;
-}*/
+// const extend = (obj, mixin) => {
+//   for (let key in mixin) {
+//     if (mixin.hasOwnProperty(key)) {
+//       obj[key] = mixin[key];
+//     }
+//   }
+//   return obj;
+// };
 
 const extend = (obj, mixin) => {
   Object.keys(mixin).forEach(key => obj[key] = mixin[key]);
   return obj;
 };
+
+// Usage
 
 const obj1 = {
   name: 'Marcus Aurelius',

@@ -30,32 +30,21 @@ const accessors = {
 
 };
 
-// Assign metadata to array elements
-//   data - array of objects
-//   metadata - data describes PrototypeClass structure
-// Returns: built PrototypeClass
-//
-function assignMetadata(data, metadata) {
-  const proto = buildPrototype(metadata);
-  assignPrototype(data, proto);
-  return proto;
-}
-
 // Assign prototype to records array or single record
 //   data - array of objects
 //   proto - dynamically built prototipe to be assigned
-//
-function assignPrototype(data, proto) {
+
+const assignPrototype = (data, proto) => {
   if (Array.isArray(data)) {
     data.forEach(item => item.__proto__ = proto.prototype);
   } else {
     data.__proto__ = proto.prototype;
   }
-}
+};
 
 // Build Prototype from Metadata
-//
-function buildPrototype(metadata) {
+
+const buildPrototype = (metadata) => {
   const protoClass = function ProtoClass() {};
   let index = 0, fieldDef, buildGetter, fieldType;
   for (const name in metadata) {
@@ -66,10 +55,23 @@ function buildPrototype(metadata) {
     if (buildGetter) buildGetter(protoClass, name, index++, fieldDef);
   }
   return protoClass;
-}
+};
+
+// Assign metadata to array elements
+//   data - array of objects
+//   metadata - data describes PrototypeClass structure
+// Returns: built PrototypeClass
+
+const assignMetadata = (data, metadata) => {
+  const proto = buildPrototype(metadata);
+  assignPrototype(data, proto);
+  return proto;
+};
+
+// Usage
 
 // Define Data Source
-//
+
 const data = [
   ['Marcus Aurelius', 'Rome', '212-04-26'],
   ['Victor Glushkov', 'Rostov on Don', '1923-08-24'],
@@ -79,7 +81,7 @@ const data = [
 ];
 
 // Define metadata to build prototype dynamically
-//
+
 const metadata = {
   name: 'string',
   city: 'string',
@@ -93,7 +95,7 @@ const metadata = {
 };
 
 // Define query using regular JavaScript syntax
-//
+
 const query = person => (
   person.name !== '' &&
   person.age > 25 &&

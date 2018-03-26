@@ -1,14 +1,13 @@
 'use strict';
 
-const emitable = obj => Object.assign(obj, {
-  events: {},
+const emitable = (obj, events = {}) => Object.assign(obj, {
   on(name, fn) {
-    const event = this.events[name] || [];
-    this.events[name] = event;
+    const event = events[name] || [];
+    events[name] = event;
     event.push(fn);
   },
   emit(name, ...data) {
-    const event = this.events[name];
+    const event = events[name];
     if (event) event.forEach(fn => fn(...data));
   }
 });

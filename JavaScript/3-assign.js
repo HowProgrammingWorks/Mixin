@@ -23,7 +23,7 @@ const mix2 = {
   }
 };
 
-Object.assign(obj1, mix1, mix2);
+const res = Object.assign(obj1, mix1, mix2);
 console.log(obj1);
-console.log(obj1.toString());
+console.log(res.toString());
 console.log(`His age is ${obj1.age()} as of today`);
