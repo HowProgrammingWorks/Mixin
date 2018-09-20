@@ -8,7 +8,7 @@ const g3 = { area: 300 };
 g2.area = 200;
 
 // Mixin as a function
-const mixinCalculateCost = (obj) => {
+const mixinCalculateCost = obj => {
   obj.area = obj.area || 0;
   obj.calculateCost = function(price) {
     return this.area * price;

@@ -44,7 +44,7 @@ const assignPrototype = (data, proto) => {
 
 // Build Prototype from Metadata
 
-const buildPrototype = (metadata) => {
+const buildPrototype = metadata => {
   const protoClass = function ProtoClass() {};
   let index = 0, fieldDef, buildGetter, fieldType;
   for (const name in metadata) {
