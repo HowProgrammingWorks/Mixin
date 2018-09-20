@@ -49,7 +49,7 @@ const buildPrototype = (metadata) => {
   let index = 0, fieldDef, buildGetter, fieldType;
   for (const name in metadata) {
     fieldDef = metadata[name];
-    fieldType = typeof(fieldDef);
+    fieldType = typeof fieldDef;
     if (fieldType !== 'function') fieldType = fieldDef;
     buildGetter = accessors[fieldType];
     if (buildGetter) buildGetter(protoClass, name, index++, fieldDef);
