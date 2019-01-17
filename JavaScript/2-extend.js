@@ -19,7 +19,7 @@ const extend = (obj, mixin) => {
 const obj1 = {
   name: 'Marcus Aurelius',
   city: 'Rome',
-  born: '121-04-26'
+  born: '121-04-26',
 };
 
 const mix1 = {

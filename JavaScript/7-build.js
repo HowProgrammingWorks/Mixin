@@ -38,7 +38,7 @@ const assignPrototype = (data, proto) => {
   if (Array.isArray(data)) {
     data.forEach(item => item.__proto__ = proto.prototype);
   } else {
-    data.__proto__ = proto.prototype;
+    Object.assignProperty(data, proto.prototype);
   }
 };
 
@@ -64,6 +64,7 @@ const buildPrototype = metadata => {
 
 const assignMetadata = (data, metadata) => {
   const proto = buildPrototype(metadata);
+  //Object.setPrototypeOf(data, proto);
   assignPrototype(data, proto);
   return proto;
 };
@@ -91,6 +92,9 @@ const metadata = {
       new Date().getFullYear() -
       new Date(this.born + '').getFullYear()
     );
+  },
+  toString() {
+    return [this.name, this.city, this.born, this.age].join(', ');
   }
 };
 
@@ -107,4 +111,4 @@ assignMetadata(data, metadata);
 
 // Apply query to dataset
 const res = data.filter(query);
-console.dir(res);
+console.dir(res.map(x => x.toString()));
