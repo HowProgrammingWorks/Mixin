@@ -1,6 +1,6 @@
 # Mixin behavior, structure and relations
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/oRQ0kQr1N-U/0.jpg)](https://www.youtube.com/watch?v=oRQ0kQr1N-U)
+[![Примеси, обертки, декораторы, мемоизация ](https://img.youtube.com/vi/oRQ0kQr1N-U/0.jpg)](https://www.youtube.com/watch?v=oRQ0kQr1N-U)
 
 Tasks:
 - see examples
