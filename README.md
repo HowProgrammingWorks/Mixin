@@ -1,6 +1,6 @@
-# Mixin behavior, structure and relations
+# Примеси в JavaScript
 
-[![Примеси, обертки, декораторы, мемоизация ](https://img.youtube.com/vi/oRQ0kQr1N-U/0.jpg)](https://www.youtube.com/watch?v=oRQ0kQr1N-U)
+[![Примеси в JavaScript: mixin, extend, Object.assign, class λ-mixin](https://img.youtube.com/vi/NZMrJ2adEyY/0.jpg)](https://www.youtube.com/watch?v=NZMrJ2adEyY)
 
 Tasks:
 - see examples
