@@ -8,7 +8,11 @@ const emitable = (obj, events = {}) => Object.assign(obj, {
   },
   emit(name, ...data) {
     const event = events[name];
-    if (event) event.forEach(fn => fn(...data));
+    if (event) {
+      for (const fn of event) {
+        fn(...data);
+      }
+    }
   }
 });
 

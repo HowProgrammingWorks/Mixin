@@ -81,6 +81,8 @@ const data = [
   ['Rene Descartes', 'La Haye en Touraine', '1596-03-31']
 ];
 
+console.dir({ data });
+
 // Define metadata to build prototype dynamically
 
 const metadata = {
@@ -90,7 +92,7 @@ const metadata = {
   age() {
     return (
       new Date().getFullYear() -
-      new Date(this.born + '').getFullYear()
+      new Date(this.born).getFullYear()
     );
   },
   toString() {
@@ -100,10 +102,10 @@ const metadata = {
 
 // Define query using regular JavaScript syntax
 
-const query = person => (
-  person.name !== '' &&
-  person.age > 25 &&
-  person.city === 'Rome'
+const query = ({ name, age, city }) => (
+  name !== '' &&
+  age > 25 &&
+  city === 'Rome'
 );
 
 // Build prototype and assign to array elements
@@ -111,4 +113,5 @@ assignMetadata(data, metadata);
 
 // Apply query to dataset
 const res = data.filter(query);
-console.dir(res.map(x => x.toString()));
+console.dir({ res });
+console.dir({ age: res[0].age });
