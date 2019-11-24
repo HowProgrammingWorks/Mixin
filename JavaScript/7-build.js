@@ -38,7 +38,7 @@ const assignPrototype = (data, proto) => {
   if (Array.isArray(data)) {
     data.forEach(item => item.__proto__ = proto.prototype);
   } else {
-    Object.assignProperty(data, proto.prototype);
+    Object.setPrototypeOf(data, proto.prototype);
   }
 };
 
