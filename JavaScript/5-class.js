@@ -13,7 +13,7 @@ const Rect = class {
   }
 };
 
-const equilateral = Category => class extends Category {
+const equilateral = (Category) => class extends Category {
   constructor(x, y, side) {
     super(x, y, side, side);
   }

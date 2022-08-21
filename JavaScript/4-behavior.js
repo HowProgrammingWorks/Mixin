@@ -1,10 +1,10 @@
 'use strict';
 
-const scalable = image => {
+const scalable = (image) => {
   image.scale = () => console.log('Image scaled');
 };
 
-const lazy = image => {
+const lazy = (image) => {
   const scale = image.scale;
   image.scale = () => setImmediate(() => scale());
 };

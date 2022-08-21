@@ -16,7 +16,7 @@ const emitable = (obj, events = {}) => Object.assign(obj, {
   }
 });
 
-const movable = obj => {
+const movable = (obj) => {
   obj.on('move', (x, y) => {
     console.log('move', x, y);
     obj.x += x;
