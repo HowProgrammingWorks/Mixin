@@ -36,7 +36,7 @@ const accessors = {
 
 const assignPrototype = (data, proto) => {
   if (Array.isArray(data)) {
-    data.forEach(item => item.__proto__ = proto.prototype);
+    data.forEach((item) => item.__proto__ = proto.prototype);
   } else {
     Object.assignProperty(data, proto.prototype);
   }
@@ -44,7 +44,7 @@ const assignPrototype = (data, proto) => {
 
 // Build Prototype from Metadata
 
-const buildPrototype = metadata => {
+const buildPrototype = (metadata) => {
   const protoClass = function ProtoClass() {};
   let index = 0, fieldDef, buildGetter, fieldType;
   for (const name in metadata) {
