@@ -32,7 +32,7 @@ const accessors = {
 
 // Assign prototype to records array or single record
 //   data - array of objects
-//   proto - dynamically built prototipe to be assigned
+//   proto - dynamically built prototype to be assigned
 
 const assignPrototype = (data, proto) => {
   if (Array.isArray(data)) {
