@@ -2,7 +2,7 @@
 
 const emitable = (obj, events = {}) => Object.assign(obj, {
   on(name, fn) {
-    const event = events[name] || [];
+    const event = events[name] ?? [];
     events[name] = event;
     event.push(fn);
   },
