@@ -24,7 +24,7 @@ const mix1 = {
     const year = new Date().getFullYear();
     const born = new Date(this.born).getFullYear();
     return year - born;
-  }
+  },
 };
 
 extend(obj1, mix1);

@@ -3,7 +3,7 @@
 const obj1 = {
   name: 'Marcus Aurelius',
   city: 'Rome',
-  born: '121-04-26'
+  born: '121-04-26',
 };
 
 const mix1 = {
@@ -14,13 +14,13 @@ const mix1 = {
     const year = new Date().getFullYear();
     const born = new Date(this.born).getFullYear();
     return year - born;
-  }
+  },
 };
 
 const mix2 = {
   toString() {
     return `${this.name} - ${this.city} - ${this.born}`;
-  }
+  },
 };
 
 const res = Object.assign(obj1, mix1, mix2);

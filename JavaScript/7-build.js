@@ -1,7 +1,6 @@
 'use strict';
 
 const accessors = {
-
   string(proto, name, index) {
     Object.defineProperty(proto.prototype, name, {
       get() {
@@ -9,7 +8,7 @@ const accessors = {
       },
       set(value) {
         this[index] = value;
-      }
+      },
     });
   },
 
@@ -20,14 +19,13 @@ const accessors = {
       },
       set(value) {
         this[index] = value instanceof Date ? value.toISOString() : value;
-      }
+      },
     });
   },
 
   function(proto, name, index, fieldDef) {
     Object.defineProperty(proto.prototype, name, { get: fieldDef });
-  }
-
+  },
 };
 
 // Assign prototype to records array or single record
@@ -36,7 +34,9 @@ const accessors = {
 
 const assignPrototype = (data, proto) => {
   if (Array.isArray(data)) {
-    data.forEach((item) => item.__proto__ = proto.prototype);
+    data.forEach((item) => {
+      item.__proto__ = proto.prototype;
+    });
   } else {
     Object.setPrototypeOf(data, proto.prototype);
   }
@@ -46,7 +46,10 @@ const assignPrototype = (data, proto) => {
 
 const buildPrototype = (metadata) => {
   const protoClass = function ProtoClass() {};
-  let index = 0, fieldDef, buildGetter, fieldType;
+  let index = 0;
+  let fieldDef = null;
+  let buildGetter = null;
+  let fieldType = undefined;
   for (const name in metadata) {
     fieldDef = metadata[name];
     fieldType = typeof fieldDef;
@@ -78,7 +81,7 @@ const data = [
   ['Victor Glushkov', 'Rostov on Don', '1923-08-24'],
   ['Ibn Arabi', 'Murcia', '1165-11-16'],
   ['Mao Zedong', 'Shaoshan', '1893-12-26'],
-  ['Rene Descartes', 'La Haye en Touraine', '1596-03-31']
+  ['Rene Descartes', 'La Haye en Touraine', '1596-03-31'],
 ];
 
 console.dir({ data });
@@ -90,23 +93,17 @@ const metadata = {
   city: 'string',
   born: 'Date',
   age() {
-    return (
-      new Date().getFullYear() -
-      new Date(this.born).getFullYear()
-    );
+    return new Date().getFullYear() - new Date(this.born).getFullYear();
   },
   toString() {
     return [this.name, this.city, this.born, this.age].join(', ');
-  }
+  },
 };
 
 // Define query using regular JavaScript syntax
 
-const query = ({ name, age, city }) => (
-  name !== '' &&
-  age > 25 &&
-  city === 'Rome'
-);
+const query = ({ name, age, city }) =>
+  name !== '' && age > 25 && city === 'Rome';
 
 // Build prototype and assign to array elements
 assignMetadata(data, metadata);

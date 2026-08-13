@@ -13,11 +13,12 @@ const Rect = class {
   }
 };
 
-const equilateral = (Category) => class extends Category {
-  constructor(x, y, side) {
-    super(x, y, side, side);
-  }
-};
+const equilateral = (Category) =>
+  class extends Category {
+    constructor(x, y, side) {
+      super(x, y, side, side);
+    }
+  };
 
 const Square = equilateral(Rect);
 
